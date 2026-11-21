@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Carpenza Interiors | Design options</title>
+<link rel="icon" href="../assets/icon.png">
+<style>
+  :root { --bg: #0f0e0d; --ink: #ece6dc; --muted: #9c948a; --line: #2c2925; --gold: #c9a96e; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 300 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; padding: clamp(24px, 5vw, 64px) 16px; }
+  main { max-width: 1100px; margin: 0 auto; }
+  img.logo { height: 56px; width: auto; }
+  h1 { font: 400 clamp(28px, 4vw, 44px)/1.1 Georgia, serif; margin: 24px 0 8px; }
+  p.sub { color: var(--muted); margin: 0 0 36px; }
+  .opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  a.opt { display: block; color: inherit; text-decoration: none; border: 1px solid var(--line); padding: 14px; transition: border-color .2s; }
+  a.opt:hover { border-color: var(--gold); }
+  .opt img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+  .opt h2 { font: 400 24px/1.2 Georgia, serif; margin: 14px 0 4px; }
+  .opt p { margin: 0; color: var(--muted); font-size: 14px; }
+  .opt span { display: inline-block; margin-top: 12px; color: var(--gold); font-size: 13px; }
+  @media (max-width: 760px) { .opts { grid-template-columns: 1fr; } .opt img { aspect-ratio: 16/10; } }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="../assets/lockup.png" alt="Carpenza Interiors" width="1746" height="436">
+  <h1>Three directions for the website</h1>
+  <p class="sub">Same photos, videos and content, three different looks. Open each on your phone too.</p>
+  <div class="opts">
+    <a class="opt" href="../"><img src="../assets/work/curved-black-kitchen-s.webp" alt="" width="480" height="640"><h2>1. Noir</h2><p>Black and gold to match the banner. Dramatic, with a sliding hero, hover reveals and a quote form.</p><span>Open (current live site)</span></a>
+    <a class="opt" href="atelier/"><img src="../assets/work/lit-arch-feature-wall-s.webp" alt="" width="480" height="640"><h2>2. Atelier</h2><p>Light, warm paper tones and large serif type. Calm and editorial, like a design magazine, with project stories.</p><span>Open Atelier</span></a>
+    <a class="opt" href="monolith/"><img src="../assets/work/grey-track-light-kitchen-s.webp" alt="" width="480" height="640"><h2>3. Monolith</h2><p>Concrete grey, strict Swiss grid, bold condensed type and a numbered project index. Architectural and precise.</p><span>Open Monolith</span></a>
+  </div>
+</main>
+</body>
+</html>

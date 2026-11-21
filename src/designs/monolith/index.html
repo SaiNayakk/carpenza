@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Carpenza Interiors | Monolith</title>
+<meta name="theme-color" content="#e4e2de">
+<link rel="icon" href="../../assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #e4e2de; --bg-2: #d9d6d0; --ink: #111110; --muted: #5f5c57; --rule: #111110;
+    --accent: #a8823f;
+    --sans: "Archivo", "Helvetica Neue", Arial, sans-serif; --cond: "Barlow Condensed", "Arial Narrow", sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --pad: clamp(16px, 3vw, 40px); --gap: clamp(12px, 1.6vw, 24px); --ease: cubic-bezier(.2, .7, .2, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 15px/1.5 var(--sans); -webkit-font-smoothing: antialiased; }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; text-align: left; }
+  .mono { font: 400 12px/1.4 var(--mono); letter-spacing: .02em; text-transform: uppercase; }
+  .wrap { padding: 0 var(--pad); }
+  .g12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap); }
+
+  /* top bar */
+  .bar { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .bar .g12 { align-items: center; height: 56px; }
+  .bar__brand { grid-column: span 3; display: flex; align-items: center; gap: 10px; font: 700 15px/1 var(--sans); letter-spacing: .06em; }
+  .bar__brand img { height: 24px; width: auto; }
+  .bar__what { grid-column: span 3; color: var(--muted); }
+  .bar nav { grid-column: span 4; display: flex; gap: 20px; }
+  .bar nav a, .bar__call { transition: color .2s; }
+  @media (hover: hover) { .bar nav a:hover, .bar__call:hover { color: var(--accent); } }
+  .bar__call { grid-column: span 2; justify-self: end; white-space: nowrap; }
+
+  /* hero */
+  .hero h1 { display: inline-block; width: 100%; margin: 0; padding: clamp(16px, 3vw, 32px) 0 0; font: 800 clamp(64px, 27.5vw, 520px)/.8 var(--cond); letter-spacing: -.01em; text-transform: uppercase; white-space: nowrap; overflow: hidden; }
+  .hero .g12 { padding: var(--gap) 0 clamp(40px, 6vw, 80px); border-bottom: 1px solid var(--rule); }
+  .hero__text { grid-column: span 4; display: flex; flex-direction: column; justify-content: flex-start; gap: 28px; border-top: 1px solid var(--rule); padding-top: 14px; }
+  .hero__text h2 { margin: 0; font: 600 clamp(26px, 2.6vw, 40px)/1.05 var(--cond); text-transform: uppercase; letter-spacing: -.01em; }
+  .hero__text p { margin: 0; color: var(--muted); max-width: 380px; }
+  .cta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; padding: 12px 14px; border: 1px solid var(--ink); font: 500 12px/1 var(--mono); text-transform: uppercase; transition: background .2s, color .2s; }
+  .btn::after { content: "→"; }
+  .btn--fill { background: var(--ink); color: var(--bg); }
+  @media (hover: hover) { .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--ink); } }
+  .hero__imgs { grid-column: 5 / span 8; display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: var(--gap); }
+  .hero__imgs figure { margin: 0; }
+  .hero__imgs img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: 50% 65%; }
+  .hero__imgs figcaption { padding-top: 6px; }
+  .hero__imgs figure:first-child img { aspect-ratio: 3/4.2; }
+
+  .sec { padding: clamp(56px, 8vw, 110px) 0; border-bottom: 1px solid var(--rule); }
+  .sec__head { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap); margin-bottom: clamp(24px, 4vw, 48px); align-items: end; }
+  .sec__head .mono { grid-column: span 3; }
+  .sec__head h2 { grid-column: span 9; margin: 0; font: 700 clamp(40px, 7vw, 120px)/.86 var(--cond); text-transform: uppercase; letter-spacing: -.01em; }
+
+  /* featured strip */
+  .strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 30%); gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; }
+  .strip figure { margin: 0; scroll-snap-align: start; }
+  .strip img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+  .strip figcaption { display: grid; grid-template-columns: 40px 1fr; padding-top: 8px; border-top: 1px solid var(--rule); margin-top: 8px; }
+
+  /* index table */
+  .tabs { display: flex; flex-wrap: wrap; border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); margin-bottom: var(--gap); }
+  .tabs button { padding: 10px 14px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .tabs button sup { color: var(--muted); margin-left: 4px; }
+  .tabs button.is-on { background: var(--ink); color: var(--bg); }
+  .tabs button.is-on sup { color: var(--bg-2); }
+  .rows { border-top: 1px solid var(--rule); }
+  .row { display: grid; grid-template-columns: 60px 1fr 220px 120px; gap: var(--gap); align-items: center; width: 100%; padding: 14px 0; border-bottom: 1px solid var(--rule); transition: background .15s, padding .25s var(--ease); }
+  .row.is-hidden { display: none; }
+  .row__t { font: 600 clamp(18px, 1.9vw, 28px)/1.1 var(--cond); text-transform: uppercase; }
+  .row__thumb { display: none; }
+  .row__go { justify-self: end; }
+  @media (hover: hover) { .row:hover { background: var(--ink); color: var(--bg); padding-left: 12px; padding-right: 12px; } }
+  .peek { position: fixed; z-index: 20; width: 240px; pointer-events: none; opacity: 0; transform: translate(-50%, -110%) scale(.96); transition: opacity .2s, transform .2s var(--ease); }
+  .peek.is-on { opacity: 1; transform: translate(-50%, -110%) scale(1); }
+  .peek img { width: 100%; height: auto; }
+  .more { margin-top: var(--gap); }
+  .more[hidden] { display: none; }
+
+  /* services */
+  .cells { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+  .cell { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 18px; min-height: 230px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+  .cell h3 { margin: 0; font: 700 clamp(24px, 2.4vw, 36px)/.95 var(--cond); text-transform: uppercase; }
+  .cell p { margin: 0; color: var(--muted); }
+
+  /* films */
+  .films { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+  .films figure { margin: 0; }
+  .films video { width: 100%; aspect-ratio: 9/16; object-fit: cover; background: var(--bg-2); }
+  .films figcaption { display: flex; justify-content: space-between; padding-top: 8px; margin-top: 8px; border-top: 1px solid var(--rule); }
+
+  /* process */
+  .proc { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gap); }
+  .proc div { border-top: 3px solid var(--ink); padding-top: 12px; }
+  .proc h3 { margin: 18px 0 8px; font: 700 26px/1 var(--cond); text-transform: uppercase; }
+  .proc p { margin: 0; color: var(--muted); }
+
+  /* contact */
+  .contact { background: var(--ink); color: var(--bg); padding: clamp(56px, 8vw, 110px) var(--pad) 0; }
+  .contact .sec__head h2 { color: var(--bg); }
+  .contact a.big { display: grid; grid-template-columns: 3fr 9fr; gap: var(--gap); align-items: baseline; padding: 16px 0; border-top: 1px solid #3a3936; transition: color .2s; }
+  .contact a.big strong { font: 800 clamp(40px, 8vw, 132px)/.9 var(--cond); letter-spacing: -.01em; }
+  @media (hover: hover) { .contact a.big:hover { color: var(--accent); } }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 40px 0; border-top: 1px solid #3a3936; color: #9a978f; }
+  .foot img { height: 48px; width: auto; }
+
+  /* lightbox */
+  .lb { position: fixed; inset: 0; z-index: 30; background: var(--bg); display: grid; grid-template-rows: auto 1fr; }
+  .lb[hidden] { display: none; }
+  .lb__bar { display: grid; grid-template-columns: 1fr auto auto auto; gap: 20px; align-items: center; padding: 0 var(--pad); height: 56px; border-bottom: 1px solid var(--rule); }
+  .lb img { max-height: calc(100vh - 90px); max-width: 100%; margin: auto; object-fit: contain; padding: 16px; }
+
+  .rv { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .rv.is-in { opacity: 1; transform: none; }
+
+  @media (max-width: 960px) {
+    .bar__what, .bar nav { display: none; }
+    .bar__brand { grid-column: span 8; } .bar__call { grid-column: span 4; }
+    .hero__text, .hero__imgs { grid-column: 1 / -1; }
+    .sec__head .mono, .sec__head h2 { grid-column: 1 / -1; }
+    .row { grid-template-columns: 56px 1fr 28px; padding: 10px 0; }
+    .row__cat { display: none; }
+    .row__n { display: none; }
+    .row__thumb { display: block; width: 56px; height: 56px; object-fit: cover; }
+    .cells { grid-template-columns: 1fr 1fr; }
+    .films { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 70%; overflow-x: auto; scroll-snap-type: x mandatory; }
+    .films figure { scroll-snap-align: start; }
+    .proc { grid-template-columns: 1fr 1fr; }
+    .strip { grid-auto-columns: 75%; }
+    .contact a.big { grid-template-columns: 1fr; gap: 4px; }
+  }
+  @media (max-width: 560px) {
+    .hero__imgs { grid-template-columns: 1fr 1fr; }
+    .hero__imgs figure:first-child { grid-column: 1 / -1; }
+    .hero__imgs figure:first-child img { aspect-ratio: 4/3; }
+    .cells, .proc { grid-template-columns: 1fr; }
+    .cell { min-height: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .rv { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap g12">
+    <a class="bar__brand" href="#top"><img src="../../assets/mark.png" alt="" width="44" height="40">CARPENZA</a>
+    <span class="bar__what mono">Interiors &amp; carpentry</span>
+    <nav class="mono"><a href="#work">Work</a><a href="#index">Index</a><a href="#services">Services</a><a href="#contact">Contact</a></nav>
+    <a class="bar__call mono" href="tel:+918722304278">+91 87223 04278</a>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <section class="hero">
+    <h1 class="rv">Carpenza</h1>
+    <div class="g12">
+      <div class="hero__text rv">
+        <span class="mono">Interiors / Carpentry / Ceilings / Paint</span>
+        <div>
+          <h2>Crafted spaces.<br>Timeless design.</h2>
+          <p style="margin-top:14px">Kitchens, wardrobes, TV walls, false ceilings and painting. Planned, built and handed over by one crew.</p>
+        </div>
+        <div class="cta"><a class="btn btn--fill" href="#contact">Get a quote</a><a class="btn" href="#index">All projects</a></div>
+      </div>
+      <div class="hero__imgs">
+        <figure class="rv"><img src="../../assets/work/wave-ceiling-l.webp" alt="Wave false ceiling" width="960" height="1280"><figcaption class="mono">01 / Wave ceiling</figcaption></figure>
+        <figure class="rv"><img src="../../assets/work/curved-black-kitchen-s.webp" alt="Curved black gloss kitchen" width="480" height="640"><figcaption class="mono">02 / Curved kitchen</figcaption></figure>
+        <figure class="rv"><img src="../../assets/work/dark-marble-wardrobe-s.webp" alt="Stone-finish wardrobe" width="480" height="640"><figcaption class="mono">03 / Stone wardrobe</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="work">
+    <div class="sec__head"><span class="mono">(01) Selected</span><h2 class="rv">Featured work</h2></div>
+    <div class="strip">
+      <figure><img src="../../assets/work/lit-arch-feature-wall-l.webp" alt="Lit arch feature wall" loading="lazy" width="960" height="1280"><figcaption class="mono"><span>A</span>Lit arch feature wall</figcaption></figure>
+      <figure><img src="../../assets/work/champagne-fluted-glass-l.webp" alt="Fluted glass kitchen cabinets" loading="lazy" width="960" height="1280"><figcaption class="mono"><span>B</span>Fluted glass uppers</figcaption></figure>
+      <figure><img src="../../assets/work/marble-copper-tv-panel-l.webp" alt="Marble TV panel with copper inlays" loading="lazy" width="960" height="1280"><figcaption class="mono"><span>C</span>Marble TV panel</figcaption></figure>
+      <figure><img src="../../assets/work/grey-track-light-kitchen-l.webp" alt="Grey kitchen with track lights" loading="lazy" width="960" height="1280"><figcaption class="mono"><span>D</span>Track-light kitchen</figcaption></figure>
+      <figure><img src="../../assets/work/green-panel-headboard-l.webp" alt="Green panelled headboard wall" loading="lazy" width="960" height="1280"><figcaption class="mono"><span>E</span>Panelled headboard</figcaption></figure>
+      <figure><img src="../../assets/work/ganesha-pooja-unit-l.webp" alt="Pooja unit with Ganesha cut-out" loading="lazy" width="960" height="1280"><figcaption class="mono"><span>F</span>Pooja unit</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" id="index">
+    <div class="sec__head"><span class="mono">(02) Index</span><h2 class="rv">All projects <span id="count"></span></h2></div>
+    <div class="tabs mono" id="tabs"></div>
+    <div class="rows" id="rows"></div>
+    <button class="btn more" id="more" hidden>Show all</button>
+  </section>
+
+  <section class="sec" id="services">
+    <div class="sec__head"><span class="mono">(03) Services</span><h2 class="rv">What we build</h2></div>
+    <div class="cells">
+      <div class="cell rv"><span class="mono">S.01</span><div><h3>Carpentry work</h3><p>Partitions, shelving, pooja units, beds, study tables, crockery and shoe units.</p></div></div>
+      <div class="cell rv"><span class="mono">S.02</span><div><h3>Modular kitchens</h3><p>L, U, parallel and island layouts with tall units, pull-outs and lighting.</p></div></div>
+      <div class="cell rv"><span class="mono">S.03</span><div><h3>Wardrobes &amp; storage</h3><p>Sliding and hinged wardrobes, lofts, dressers and study nooks.</p></div></div>
+      <div class="cell rv"><span class="mono">S.04</span><div><h3>TV units &amp; wall panels</h3><p>Floating units, fluted and slatted walls, marble-look panels, wainscoting.</p></div></div>
+      <div class="cell rv"><span class="mono">S.05</span><div><h3>False ceiling &amp; gypsum</h3><p>Cove lighting, curved and layered ceilings, profile lights, wood slats.</p></div></div>
+      <div class="cell rv"><span class="mono">S.06</span><div><h3>Painting &amp; finishing</h3><p>Interior paint, accent and panelled walls, wallpaper, touch-ups.</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="films">
+    <div class="sec__head"><span class="mono">(04) Films</span><h2 class="rv">On site</h2></div>
+    <div class="films">
+      <figure><video src="../../assets/video/walkthrough-kitchen.mp4" poster="../../assets/video/walkthrough-kitchen.webp" muted loop playsinline preload="none"></video><figcaption class="mono"><span>F.01</span><span>Kitchen &amp; dining</span></figcaption></figure>
+      <figure><video src="../../assets/video/walkthrough-bedroom.mp4" poster="../../assets/video/walkthrough-bedroom.webp" muted loop playsinline preload="none"></video><figcaption class="mono"><span>F.02</span><span>Bedroom</span></figcaption></figure>
+      <figure><video src="../../assets/video/walkthrough-home.mp4" poster="../../assets/video/walkthrough-home.webp" muted loop playsinline preload="none"></video><figcaption class="mono"><span>F.03</span><span>Wardrobes</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="sec" style="border-bottom:0">
+    <div class="sec__head"><span class="mono">(05) Process</span><h2 class="rv">Four steps</h2></div>
+    <div class="proc">
+      <div class="rv"><span class="mono">P.01</span><h3>Site visit</h3><p>We measure, listen and note how you use the space.</p></div>
+      <div class="rv"><span class="mono">P.02</span><h3>Design &amp; quote</h3><p>Layouts, finishes and an itemised quotation.</p></div>
+      <div class="rv"><span class="mono">P.03</span><h3>Execution</h3><p>Built to schedule, with updates and a tidy site.</p></div>
+      <div class="rv"><span class="mono">P.04</span><h3>Handover</h3><p>A walkthrough together and touch-ups done.</p></div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="sec__head"><span class="mono">(06) Contact</span><h2>Start a project</h2></div>
+  <a class="big" href="tel:+918722304278"><span class="mono">Call</span><strong>87223 04278</strong></a>
+  <a class="big" href="tel:+918722932746"><span class="mono">Call</span><strong>87229 32746</strong></a>
+  <a class="big" href="https://wa.me/918722304278?text=Hi%20Carpenza%20Interiors%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener"><span class="mono">Message</span><strong>WhatsApp</strong></a>
+  <div class="foot mono"><img src="../../assets/lockup.png" alt="Carpenza Interiors" width="1746" height="436"><span>© <span id="y"></span> Carpenza Interiors</span></div>
+</section>
+
+<div class="peek" id="peek"><img alt=""></div>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true">
+  <div class="lb__bar mono"><span id="lbc"></span><button id="lbp">Prev</button><button id="lbn">Next</button><button id="lbx">Close</button></div>
+  <img id="lbi" alt="">
+</div>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const A = "../../assets/";
+const CATS = { kitchen: "Kitchen", wardrobe: "Wardrobe", living: "Living & TV", ceiling: "Ceiling", bedroom: "Bedroom & study", office: "Office" };
+$("#y").textContent = new Date().getFullYear();
+
+// the wordmark fills the grid edge to edge at any width
+const h1 = $(".hero h1");
+h1.innerHTML = `<span style="display:inline-block">${h1.textContent}</span>`;
+const fit = () => { h1.style.fontSize = "100px"; h1.style.fontSize = (100 * h1.clientWidth / h1.firstElementChild.offsetWidth * .99) + "px"; };
+document.fonts.ready.then(fit); addEventListener("resize", fit);
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -6% 0px" });
+$$(".rv").forEach(el => io.observe(el));
+const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .4 });
+$$("video").forEach(v => vio.observe(v));
+
+let photos = [], f = "all", all = false;
+const src = (p, s) => `${A}work/${p.slug}-${s}.webp`;
+const pad = n => String(n).padStart(3, "0");
+const apply = () => {
+  let n = 0;
+  $$(".row").forEach(r => { const m = f === "all" || r.dataset.c === f; r.classList.toggle("is-hidden", !(m && (f !== "all" || all || n++ < 12))); });
+  $("#more").hidden = f !== "all" || all;
+};
+fetch(A + "work/photos.json").then(r => r.json()).then(list => {
+  photos = list;
+  $("#count").textContent = `(${pad(list.length)})`;
+  const counts = list.reduce((m, p) => (m[p.cat] = (m[p.cat] || 0) + 1, m), {});
+  $("#tabs").innerHTML = `<button class="is-on" data-f="all">All<sup>${list.length}</sup></button>` +
+    Object.entries(CATS).map(([k, v]) => `<button data-f="${k}">${v}<sup>${counts[k] || 0}</sup></button>`).join("");
+  $("#rows").innerHTML = list.map((p, i) => `<button class="row" data-c="${p.cat}" data-i="${i}">
+    <span class="row__n mono">${pad(i + 1)}</span><img class="row__thumb" src="${src(p, "s")}" alt="" loading="lazy">
+    <span class="row__t">${p.title}</span><span class="row__cat mono">${CATS[p.cat]}</span><span class="row__go mono">View</span></button>`).join("");
+  $("#more").textContent = `Show all ${list.length}`;
+  $$("#tabs button").forEach(b => b.onclick = () => { $$("#tabs button").forEach(x => x.classList.toggle("is-on", x === b)); f = b.dataset.f; apply(); });
+  apply();
+});
+$("#more").onclick = () => { all = true; apply(); };
+
+// hover preview follows the pointer on devices with a mouse
+const peek = $("#peek");
+if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  $("#rows").addEventListener("mousemove", e => {
+    const r = e.target.closest(".row");
+    if (!r) return peek.classList.remove("is-on");
+    const p = photos[+r.dataset.i], im = peek.firstElementChild;
+    if (im.dataset.slug !== p.slug) { im.src = src(p, "s"); im.dataset.slug = p.slug; }
+    peek.style.left = e.clientX + "px"; peek.style.top = e.clientY + "px";
+    peek.classList.add("is-on");
+  });
+  $("#rows").addEventListener("mouseleave", () => peek.classList.remove("is-on"));
+}
+
+let cur = 0;
+const open = i => { cur = i; const p = photos[i]; $("#lbi").src = src(p, "l"); $("#lbi").alt = p.title; $("#lbc").textContent = `${pad(i + 1)} / ${p.title}`; $("#lb").hidden = false; peek.classList.remove("is-on"); };
+const vis = () => $$(".row:not(.is-hidden)").map(r => +r.dataset.i);
+const step = d => { const v = vis(); open(v[(v.indexOf(cur) + d + v.length) % v.length]); };
+$("#rows").onclick = e => { const r = e.target.closest(".row"); if (r) open(+r.dataset.i); };
+$("#lbx").onclick = () => $("#lb").hidden = true;
+$("#lbp").onclick = () => step(-1); $("#lbn").onclick = () => step(1);
+addEventListener("keydown", e => { if ($("#lb").hidden) return; if (e.key === "Escape") $("#lb").hidden = true; if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+</script>
+</body>
+</html>
