@@ -43,6 +43,8 @@ export function build() {
   for (const f of ["CNAME", ".nojekyll", "robots.txt"]) {
     try { cpSync(join(SRC, f), join(DIST, f)); } catch {}
   }
+  // alternative design directions, self-contained pages that share assets/
+  cpSync(join(SRC, "designs"), join(DIST, "designs"), { recursive: true });
   return html;
 }
 

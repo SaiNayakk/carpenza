@@ -37,6 +37,19 @@ test("every gallery category has a filter button and every filter shows somethin
   for (const p of photos) assert.match(js, new RegExp(`\\b${p.cat}: "`), `no label for ${p.cat}`);
 });
 
+test("design option pages only point at files that exist", () => {
+  for (const page of ["designs/index.html", "designs/atelier/index.html", "designs/monolith/index.html"]) {
+    const doc = readFileSync("dist/" + page, "utf8");
+    const dir = "dist/" + page.replace(/index\.html$/, "");
+    for (const [, ref] of doc.matchAll(/(?:src|href|poster)="(\.\.?\/[^"#]*)"/g)) {
+      const target = ref.endsWith("/") ? ref + "index.html" : ref;
+      assert.ok(existsSync(dir + target), `${page}: ${ref}`);
+    }
+    assert.doesNotMatch(doc, /[–—]/, `${page} has an em/en dash`);
+    assert.match(doc, /noindex/);
+  }
+});
+
 test("walkthrough videos ship with posters", () => {
   const vids = [...html.matchAll(/<video src="([^"]+)" poster="([^"]+)"/g)];
   assert.equal(vids.length, 3);

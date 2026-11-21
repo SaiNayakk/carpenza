@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Carpenza Interiors | Atelier</title>
+<meta name="theme-color" content="#f3efe8">
+<link rel="icon" href="../../assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3efe8; --paper-2: #ebe5db; --ink: #1d1b18; --muted: #6f685e; --line: #d8d0c3;
+    --accent: #8a6a3b;
+    --serif: "Instrument Serif", Georgia, serif; --sans: "Inter", system-ui, sans-serif;
+    --pad: clamp(16px, 5vw, 72px); --ease: cubic-bezier(.2, .7, .2, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 300 16px/1.7 var(--sans); -webkit-font-smoothing: antialiased; }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+  em { font-style: italic; }
+  .label { font: 500 11px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .serif { font-family: var(--serif); font-weight: 400; }
+
+  /* nav */
+  .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center;
+         padding: 18px var(--pad); background: rgba(243,239,232,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .3s; }
+  .nav.is-scrolled { border-color: var(--line); }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { height: 30px; width: auto; }
+  .brand span { font: 400 22px/1 var(--serif); letter-spacing: .01em; }
+  .nav ul { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+  .nav ul a { position: relative; }
+  .nav ul a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px; background: var(--ink); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+  @media (hover: hover) { .nav ul a:hover::after { transform: scaleX(1); } }
+  .nav__call { font-size: 14px; border-bottom: 1px solid var(--ink); }
+
+  /* hero */
+  .hero { padding: clamp(48px, 9vw, 120px) var(--pad) 0; }
+  .hero h1 { font: 400 clamp(52px, 10.5vw, 168px)/.92 var(--serif); letter-spacing: -.02em; margin: 0; }
+  .hero h1 em { color: var(--accent); }
+  .hero__meta { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: clamp(28px, 4vw, 56px) 0; align-items: end; }
+  .hero__meta p { margin: 0; max-width: 440px; color: var(--muted); }
+  .hero__meta .cta { justify-self: end; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; font-size: 14px; border: 1px solid var(--ink); border-radius: 999px; transition: background .25s, color .25s; }
+  .btn--solid { background: var(--ink); color: var(--paper); }
+  @media (hover: hover) { .btn:hover { background: var(--ink); color: var(--paper); } .btn--solid:hover { background: var(--accent); border-color: var(--accent); } }
+  .hero__img { margin: 0 calc(var(--pad) * -1); position: relative; overflow: hidden; height: min(78vh, 760px); }
+  .hero__img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; transform: scale(1.06); transition: transform 1.6s var(--ease); }
+  .hero__img.is-in img { transform: none; }
+  .hero__img figcaption { position: absolute; left: var(--pad); bottom: 20px; color: #fff; font-size: 13px; text-shadow: 0 1px 12px rgba(0,0,0,.4); }
+
+  .section { padding: clamp(72px, 11vw, 150px) var(--pad); }
+  .head { display: grid; grid-template-columns: 220px 1fr; gap: 24px; margin-bottom: clamp(36px, 5vw, 64px); align-items: baseline; }
+  .head h2 { font: 400 clamp(36px, 5.4vw, 80px)/1 var(--serif); margin: 0; letter-spacing: -.01em; }
+
+  /* statement */
+  .statement { display: grid; grid-template-columns: 220px 1fr; gap: 24px; }
+  .statement p { font: 400 clamp(26px, 3.2vw, 46px)/1.22 var(--serif); margin: 0; max-width: 1000px; }
+  .statement p em { color: var(--accent); }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: clamp(40px, 6vw, 80px); border-top: 1px solid var(--line); grid-column: 2; }
+  .facts div { padding-top: 18px; }
+  .facts strong { display: block; font: 400 24px/1.2 var(--serif); margin-bottom: 6px; }
+  .facts span { color: var(--muted); font-size: 14px; }
+
+  /* featured projects: alternating editorial spreads */
+  .feature { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; align-items: end; margin-bottom: clamp(64px, 9vw, 130px); }
+  .feature figure { margin: 0; overflow: hidden; }
+  .feature img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+  @media (hover: hover) { .feature figure:hover img { transform: scale(1.03); } }
+  .feature .a { grid-column: 1 / span 7; aspect-ratio: 4/5; }
+  .feature .b { grid-column: 8 / span 4; aspect-ratio: 3/4; }
+  .feature .text { grid-column: 8 / span 5; align-self: start; }
+  .feature.flip .a { grid-column: 6 / span 7; grid-row: 1; }
+  .feature.flip .b { grid-column: 1 / span 4; grid-row: 1; }
+  .feature.flip .text { grid-column: 1 / span 5; }
+  .feature .num { font: 400 15px/1 var(--serif); color: var(--accent); }
+  .feature h3 { font: 400 clamp(30px, 3.4vw, 52px)/1.05 var(--serif); margin: 10px 0 12px; }
+  .feature p { color: var(--muted); margin: 0; max-width: 420px; }
+
+  /* services */
+  .services { background: var(--paper-2); }
+  .svc { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(32px, 6vw, 96px); }
+  .svc li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; padding: 26px 0; border-top: 1px solid var(--line); }
+  .svc .n { font: 400 15px/1.6 var(--serif); color: var(--accent); }
+  .svc h3 { font: 400 28px/1.15 var(--serif); margin: 0 0 6px; }
+  .svc p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* index */
+  .filters { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-bottom: 32px; font-size: 14px; }
+  .filters button { color: var(--muted); padding: 4px 0; border-bottom: 1px solid transparent; }
+  .filters button.is-on { color: var(--ink); border-color: var(--ink); }
+  .grid { columns: 3 260px; column-gap: 24px; }
+  .card { break-inside: avoid; margin: 0 0 28px; cursor: zoom-in; }
+  .card img { width: 100%; height: auto; background: var(--paper-2); }
+  .card figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; font-size: 13px; }
+  .card figcaption span { color: var(--muted); }
+  .card.is-hidden { display: none; }
+  .more { display: flex; justify-content: center; margin-top: 16px; }
+  .more .btn[hidden] { display: none; }
+
+  /* films */
+  .films { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .films figure { margin: 0; }
+  .films video { width: 100%; aspect-ratio: 9/16; object-fit: cover; background: var(--paper-2); }
+  .films figcaption { padding-top: 10px; font-size: 13px; color: var(--muted); }
+
+  /* process */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: s; }
+  .steps li { border-top: 1px solid var(--ink); padding-top: 18px; }
+  .steps h3 { font: 400 26px/1.1 var(--serif); margin: 0 0 8px; }
+  .steps h3::before { counter-increment: s; content: "0" counter(s) "  "; color: var(--accent); font-size: 16px; vertical-align: top; }
+  .steps p { margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* contact */
+  .contact { background: var(--ink); color: var(--paper); }
+  .contact .label { color: #a59c8f; }
+  .contact h2 { font: 400 clamp(44px, 8vw, 128px)/.95 var(--serif); margin: 18px 0 clamp(36px, 5vw, 64px); letter-spacing: -.02em; }
+  .contact h2 em { color: #c9a96e; }
+  .phones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 1px solid #3a352f; }
+  .phones a { display: block; padding-top: 18px; }
+  .phones strong { display: block; font: 400 clamp(26px, 3vw, 40px)/1.1 var(--serif); }
+  .phones span { font-size: 13px; color: #a59c8f; }
+  @media (hover: hover) { .phones a:hover strong { color: #c9a96e; } }
+  footer { background: var(--ink); color: #a59c8f; padding: 0 var(--pad) 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; }
+  footer img { height: 54px; width: auto; }
+
+  /* lightbox */
+  .lb { position: fixed; inset: 0; z-index: 50; background: rgba(243,239,232,.97); display: grid; place-items: center; padding: 56px 16px; }
+  .lb[hidden] { display: none; }
+  .lb img { max-height: 82vh; max-width: min(100%, 1100px); object-fit: contain; }
+  .lb p { margin: 14px 0 0; text-align: center; font: 400 22px/1.2 var(--serif); }
+  .lb button { position: absolute; font-size: 14px; padding: 12px; }
+  .lb .x { top: 12px; right: 16px; } .lb .prev { left: 8px; top: 50%; } .lb .next { right: 8px; top: 50%; }
+
+  .rv { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .rv.is-in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .nav ul { display: none; }
+    .hero__meta, .head, .statement { grid-template-columns: 1fr; }
+    .hero__meta .cta { justify-self: start; }
+    .facts { grid-column: 1; grid-template-columns: 1fr; }
+    .feature { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .feature .a, .feature.flip .a { grid-column: 1 / -1; grid-row: auto; }
+    .feature .b, .feature.flip .b { grid-column: 2; grid-row: auto; }
+    .feature .text, .feature.flip .text { grid-column: 1; grid-row: auto; align-self: start; }
+    .svc { grid-template-columns: 1fr; }
+    .films { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 70%; overflow-x: auto; scroll-snap-type: x mandatory; }
+    .films figure { scroll-snap-align: start; }
+    .steps, .phones { grid-template-columns: 1fr 1fr; }
+    .hero__img { height: 62vh; }
+  }
+  @media (max-width: 560px) {
+    .grid { columns: 2; column-gap: 12px; }
+    .card { margin-bottom: 18px; }
+    .card figcaption { display: block; font-size: 12px; }
+    .card figcaption span { display: none; }
+    .steps, .phones { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .rv { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" href="#top"><img src="../../assets/mark.png" alt="" width="44" height="40"><span>Carpenza</span></a>
+  <ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#index">Index</a></li><li><a href="#films">Films</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a class="nav__call" href="tel:+918722304278">87223 04278</a>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="label rv">Carpenza Interiors</p>
+    <h1 class="rv">Crafted spaces,<br><em>timeless</em> design.</h1>
+    <div class="hero__meta">
+      <p class="rv">Kitchens, wardrobes, TV walls, ceilings and paint, designed and built by one crew, from the first measurement to the last touch-up.</p>
+      <div class="cta rv"><a class="btn btn--solid" href="#contact">Start a project</a><a class="btn" href="#work">View work</a></div>
+    </div>
+    <figure class="hero__img rv" id="heroImg">
+      <img src="../../assets/work/wave-ceiling-l.webp" alt="Living room under a wave false ceiling with cove lighting" width="960" height="1280">
+      <figcaption>Wave ceiling and arched feature wall</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <div class="statement">
+      <p class="label rv">Studio</p>
+      <div>
+        <p class="rv">We build the parts of a home you touch every day: the drawer that closes softly, the shelf that sits <em>exactly</em> level, the light that falls just where you cook.</p>
+        <div class="facts">
+          <div class="rv"><strong>One crew</strong><span>Carpenters, ceiling specialists and painters on the same site.</span></div>
+          <div class="rv"><strong>Clear quotes</strong><span>Itemised before work begins, so every rupee is accounted for.</span></div>
+          <div class="rv"><strong>Finished properly</strong><span>Aligned joints, clean edges and a tidy handover.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work" style="padding-top:0">
+    <div class="head"><p class="label">Selected work</p><h2 class="rv">Four rooms, up close.</h2></div>
+
+    <article class="feature">
+      <figure class="a rv"><img src="../../assets/work/curved-black-kitchen-l.webp" alt="Curved black gloss kitchen" loading="lazy" width="960" height="1280"></figure>
+      <figure class="b rv"><img src="../../assets/work/grey-kitchen-tall-units-l.webp" alt="Tall units with a wicker pull-out" loading="lazy" width="960" height="1280"></figure>
+      <div class="text rv"><span class="num">01</span><h3>Kitchens, lit from within</h3><p>Black gloss and warm wood around a curved counter, and a grey kitchen with track lights, tall units and a wicker pull-out.</p></div>
+    </article>
+
+    <article class="feature flip">
+      <figure class="a rv"><img src="../../assets/work/lit-arch-feature-wall-l.webp" alt="Lit arch feature wall" loading="lazy" width="960" height="1280"></figure>
+      <figure class="b rv"><img src="../../assets/work/arch-wainscot-wall-l.webp" alt="Arched wall panelling" loading="lazy" width="960" height="1280"></figure>
+      <div class="text rv"><span class="num">02</span><h3>Arches and light</h3><p>A fluted arch lit from behind, a wave-shaped gypsum ceiling and arched wainscoting carry one idea through the whole living room.</p></div>
+    </article>
+
+    <article class="feature">
+      <figure class="a rv"><img src="../../assets/work/dark-marble-wardrobe-l.webp" alt="Stone-finish sliding wardrobe" loading="lazy" width="960" height="1280"></figure>
+      <figure class="b rv"><img src="../../assets/work/dark-marble-dresser-l.webp" alt="Wardrobe with built-in dresser" loading="lazy" width="960" height="1280"></figure>
+      <div class="text rv"><span class="num">03</span><h3>Stone-finish wardrobes</h3><p>Floor-to-ceiling storage in a dark stone finish, with a dresser and mirror built into the run.</p></div>
+    </article>
+
+    <article class="feature flip">
+      <figure class="a rv"><img src="../../assets/work/champagne-marble-kitchen-l.webp" alt="Champagne kitchen with lit counters" loading="lazy" width="960" height="1280"></figure>
+      <figure class="b rv"><img src="../../assets/work/champagne-fluted-glass-l.webp" alt="Fluted glass uppers" loading="lazy" width="960" height="1280"></figure>
+      <div class="text rv"><span class="num">04</span><h3>Champagne and marble</h3><p>Soft champagne fronts, a marble-look backsplash and fluted glass cabinets lit from within.</p></div>
+    </article>
+  </section>
+
+  <section class="section services" id="services">
+    <div class="head"><p class="label">Services</p><h2 class="rv">What we make.</h2></div>
+    <ul class="svc">
+      <li class="rv"><span class="n">01</span><div><h3>Carpentry work</h3><p>Partitions, shelving, pooja units, beds, study tables, crockery and shoe units.</p></div></li>
+      <li class="rv"><span class="n">02</span><div><h3>Modular kitchens</h3><p>L, U, parallel and island layouts with tall units, pull-outs and lighting.</p></div></li>
+      <li class="rv"><span class="n">03</span><div><h3>Wardrobes &amp; storage</h3><p>Sliding and hinged wardrobes, lofts, dressers and study nooks.</p></div></li>
+      <li class="rv"><span class="n">04</span><div><h3>TV units &amp; wall panels</h3><p>Floating units, fluted and slatted walls, marble-look panels and wainscoting.</p></div></li>
+      <li class="rv"><span class="n">05</span><div><h3>False ceiling &amp; gypsum</h3><p>Cove lighting, curved and layered ceilings, profile lights and wood slats.</p></div></li>
+      <li class="rv"><span class="n">06</span><div><h3>Painting &amp; finishing</h3><p>Interior paint, accent and panelled walls, wallpaper and final touch-ups.</p></div></li>
+    </ul>
+  </section>
+
+  <section class="section" id="index">
+    <div class="head"><p class="label">Index</p><h2 class="rv">Every project.</h2></div>
+    <div class="filters" id="filters">
+      <button class="is-on" data-f="all">All</button><button data-f="kitchen">Kitchens</button><button data-f="wardrobe">Wardrobes</button><button data-f="living">Living &amp; TV</button><button data-f="ceiling">Ceilings</button><button data-f="bedroom">Bedrooms &amp; study</button><button data-f="office">Offices</button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="more"><button class="btn" id="more" hidden>Show all</button></div>
+  </section>
+
+  <section class="section services" id="films">
+    <div class="head"><p class="label">Films</p><h2 class="rv">Walk through.</h2></div>
+    <div class="films">
+      <figure class="rv"><video src="../../assets/video/walkthrough-kitchen.mp4" poster="../../assets/video/walkthrough-kitchen.webp" muted loop playsinline preload="none"></video><figcaption>Kitchen and dining</figcaption></figure>
+      <figure class="rv"><video src="../../assets/video/walkthrough-bedroom.mp4" poster="../../assets/video/walkthrough-bedroom.webp" muted loop playsinline preload="none"></video><figcaption>Bedroom</figcaption></figure>
+      <figure class="rv"><video src="../../assets/video/walkthrough-home.mp4" poster="../../assets/video/walkthrough-home.webp" muted loop playsinline preload="none"></video><figcaption>Bedrooms and wardrobes</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="head"><p class="label">Process</p><h2 class="rv">How it goes.</h2></div>
+    <ol class="steps">
+      <li class="rv"><h3>Visit</h3><p>We measure the space and listen to how you live in it.</p></li>
+      <li class="rv"><h3>Design</h3><p>Layouts, finishes and an itemised quotation.</p></li>
+      <li class="rv"><h3>Build</h3><p>Our crew works to schedule and keeps the site tidy.</p></li>
+      <li class="rv"><h3>Handover</h3><p>A walkthrough together, touch-ups done.</p></li>
+    </ol>
+  </section>
+
+  <section class="section contact" id="contact">
+    <p class="label">Contact</p>
+    <h2>Let's talk about<br><em>your space.</em></h2>
+    <div class="phones">
+      <a href="tel:+918722304278"><strong>87223 04278</strong><span>Call</span></a>
+      <a href="tel:+918722932746"><strong>87229 32746</strong><span>Call</span></a>
+      <a href="https://wa.me/918722304278?text=Hi%20Carpenza%20Interiors%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener"><strong>WhatsApp</strong><span>Send photos of your space</span></a>
+    </div>
+  </section>
+</main>
+<footer><img src="../../assets/lockup.png" alt="Carpenza Interiors" width="1746" height="436"><span>© <span id="y"></span> Carpenza Interiors</span></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true">
+  <button class="x" id="lbx">Close</button><button class="prev" id="lbp">Prev</button><button class="next" id="lbn">Next</button>
+  <figure style="margin:0"><img id="lbi" alt=""><p id="lbc"></p></figure>
+</div>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const A = "../../assets/";
+const LABELS = { kitchen: "Kitchen", wardrobe: "Wardrobe", living: "Living & TV", ceiling: "Ceiling", bedroom: "Bedroom & study", office: "Office" };
+$("#y").textContent = new Date().getFullYear();
+addEventListener("scroll", () => $("#nav").classList.toggle("is-scrolled", scrollY > 10), { passive: true });
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+const watch = () => $$(".rv:not(.is-in), #heroImg").forEach(el => io.observe(el));
+watch();
+
+const vio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .4 });
+$$("video").forEach(v => vio.observe(v));
+
+let photos = [], f = "all", all = false;
+const src = (p, s) => `${A}work/${p.slug}-${s}.webp`;
+const apply = () => {
+  let n = 0;
+  $$(".card").forEach(c => { const m = f === "all" || c.dataset.c === f; c.classList.toggle("is-hidden", !(m && (f !== "all" || all || n++ < 12))); });
+  $("#more").hidden = f !== "all" || all;
+  watch();
+};
+fetch(A + "work/photos.json").then(r => r.json()).then(list => {
+  photos = list;
+  $("#grid").innerHTML = list.map((p, i) => `<figure class="card rv" data-c="${p.cat}" data-i="${i}"><img src="${src(p, "s")}" width="${p.w}" height="${p.h}" alt="${p.title}" loading="lazy"><figcaption>${p.title}<span>${LABELS[p.cat]}</span></figcaption></figure>`).join("");
+  $("#more").textContent = `Show all ${list.length}`;
+  apply();
+});
+$$("#filters button").forEach(b => b.onclick = () => { $$("#filters button").forEach(x => x.classList.toggle("is-on", x === b)); f = b.dataset.f; apply(); });
+$("#more").onclick = () => { all = true; apply(); };
+
+let cur = 0;
+const open = i => { cur = i; const p = photos[i]; $("#lbi").src = src(p, "l"); $("#lbi").alt = p.title; $("#lbc").textContent = p.title; $("#lb").hidden = false; };
+const vis = () => $$(".card:not(.is-hidden)").map(c => +c.dataset.i);
+const step = d => { const v = vis(); open(v[(v.indexOf(cur) + d + v.length) % v.length]); };
+$("#grid").onclick = e => { const c = e.target.closest(".card"); if (c) open(+c.dataset.i); };
+$("#lbx").onclick = () => $("#lb").hidden = true;
+$("#lbp").onclick = () => step(-1); $("#lbn").onclick = () => step(1);
+addEventListener("keydown", e => { if ($("#lb").hidden) return; if (e.key === "Escape") $("#lb").hidden = true; if (e.key === "ArrowLeft") step(-1); if (e.key === "ArrowRight") step(1); });
+</script>
+</body>
+</html>
