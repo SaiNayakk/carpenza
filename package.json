@@ -1,0 +1,17 @@
+{
+  "name": "carpenza",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for Carpenza Interiors: carpentry, modular kitchens, wardrobes, false ceilings and painting.",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build && python serve.py",
+    "build": "node scripts/build.mjs",
+    "media": "python scripts/media.py",
+    "lint": "node scripts/lint.mjs",
+    "test": "node --test tests/site.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,422 @@
+[
+ {
+  "slug": "curved-black-kitchen",
+  "cat": "kitchen",
+  "title": "Curved black gloss kitchen",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "curved-black-kitchen-wide",
+  "cat": "kitchen",
+  "title": "Curved kitchen with pendant lights",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "champagne-marble-kitchen",
+  "cat": "kitchen",
+  "title": "Champagne kitchen, lit counters",
+  "w": 720,
+  "h": 1280
+ },
+ {
+  "slug": "champagne-fluted-glass",
+  "cat": "kitchen",
+  "title": "Fluted glass uppers",
+  "w": 720,
+  "h": 1280
+ },
+ {
+  "slug": "grey-track-light-kitchen",
+  "cat": "kitchen",
+  "title": "Grey kitchen with track lights",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "grey-kitchen-tall-units",
+  "cat": "kitchen",
+  "title": "Tall units and wicker pull-out",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "grey-marble-kitchen",
+  "cat": "kitchen",
+  "title": "Grey L-shaped kitchen",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "island-kitchen",
+  "cat": "kitchen",
+  "title": "Kitchen island with cove light",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "white-teal-kitchen",
+  "cat": "kitchen",
+  "title": "White and teal kitchen",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "grey-wood-kitchen",
+  "cat": "kitchen",
+  "title": "Grey and wood kitchen",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "mint-wood-kitchen",
+  "cat": "kitchen",
+  "title": "Mint and walnut kitchen",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "terracotta-kitchen",
+  "cat": "kitchen",
+  "title": "Terracotta tile kitchen",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "crockery-bar",
+  "cat": "kitchen",
+  "title": "Crockery unit and breakfast bar",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "dark-marble-wardrobe",
+  "cat": "wardrobe",
+  "title": "Stone-finish sliding wardrobe",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "dark-marble-dresser",
+  "cat": "wardrobe",
+  "title": "Wardrobe with built-in dresser",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "white-gold-wardrobe",
+  "cat": "wardrobe",
+  "title": "White wardrobe, brass handles",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "taupe-wardrobe-lit-mirror",
+  "cat": "wardrobe",
+  "title": "Taupe wardrobe and lit mirror",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "white-bronze-wardrobe",
+  "cat": "wardrobe",
+  "title": "Gloss sliding wardrobe",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "blue-stone-wardrobe",
+  "cat": "wardrobe",
+  "title": "Wardrobe with study nook",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "window-seat-wardrobes",
+  "cat": "wardrobe",
+  "title": "Twin wardrobes and window seat",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "concrete-wardrobe",
+  "cat": "wardrobe",
+  "title": "Concrete-look wardrobe",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "mirror-sliding-wardrobe",
+  "cat": "wardrobe",
+  "title": "Mirrored sliding wardrobe",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "grey-wood-sliding-wardrobe",
+  "cat": "wardrobe",
+  "title": "Grey and wood sliding wardrobe",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "chevron-wardrobe",
+  "cat": "wardrobe",
+  "title": "Chevron wardrobe and desk",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "beige-wardrobe",
+  "cat": "wardrobe",
+  "title": "Matte beige wardrobe",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "lit-arch-feature-wall",
+  "cat": "living",
+  "title": "Lit arch feature wall",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "tv-unit-lit-niche",
+  "cat": "living",
+  "title": "TV unit with lit display niche",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "marble-copper-tv-panel",
+  "cat": "living",
+  "title": "Marble TV panel, copper inlays",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "slatted-tv-wall",
+  "cat": "living",
+  "title": "Slatted TV wall and display unit",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "textured-tv-wall",
+  "cat": "living",
+  "title": "Textured TV wall",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "fluted-marble-tv-unit",
+  "cat": "living",
+  "title": "Fluted TV unit",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "sage-tv-unit",
+  "cat": "living",
+  "title": "Sage TV wall",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "arch-wainscot-wall",
+  "cat": "living",
+  "title": "Arched wall panelling",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "sage-panelled-wall",
+  "cat": "living",
+  "title": "Sage panelled wall",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "fluted-partition",
+  "cat": "living",
+  "title": "Fluted partition and shelves",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "glass-kitchen-partition",
+  "cat": "living",
+  "title": "Glass kitchen partition",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "lit-crockery-unit",
+  "cat": "living",
+  "title": "Lit crockery unit",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "ganesha-pooja-unit",
+  "cat": "living",
+  "title": "Pooja unit, Ganesha cut-out",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "foyer-shoe-cabinet",
+  "cat": "living",
+  "title": "Foyer shoe cabinet",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "wave-ceiling",
+  "cat": "ceiling",
+  "title": "Wave false ceiling",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "arch-corridor-ceiling",
+  "cat": "ceiling",
+  "title": "Cove ceiling over arched panels",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "wood-slat-ceiling",
+  "cat": "ceiling",
+  "title": "Wood slat ceiling, wall lights",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "bedroom-cove-ceiling",
+  "cat": "ceiling",
+  "title": "Bedroom cove ceiling",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "study-cove-ceiling",
+  "cat": "ceiling",
+  "title": "Study under a cove ceiling",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "green-panel-headboard",
+  "cat": "bedroom",
+  "title": "Green panelled headboard wall",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "leaf-wallpaper-panels",
+  "cat": "bedroom",
+  "title": "Framed leaf wallpaper",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "fluted-headboard-bedroom",
+  "cat": "bedroom",
+  "title": "Fluted headboard and wardrobe",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "upholstered-bed",
+  "cat": "bedroom",
+  "title": "Upholstered bed, marble wardrobe",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "kids-room-blue",
+  "cat": "bedroom",
+  "title": "Kids' room in blue and white",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "hydraulic-bed",
+  "cat": "bedroom",
+  "title": "Bed with hydraulic storage",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "fluted-glass-study",
+  "cat": "bedroom",
+  "title": "Study with fluted glass tower",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "study-wall-shelves",
+  "cat": "bedroom",
+  "title": "Study desk and wall shelves",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "metal-frame-study",
+  "cat": "bedroom",
+  "title": "Metal frame study shelves",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "green-bedroom-wardrobe",
+  "cat": "bedroom",
+  "title": "Corner wardrobe, green wall",
+  "w": 1280,
+  "h": 960
+ },
+ {
+  "slug": "office-reception",
+  "cat": "office",
+  "title": "Office reception",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "office-meeting-room",
+  "cat": "office",
+  "title": "Meeting room, chevron wall",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "office-meeting-room-2",
+  "cat": "office",
+  "title": "Meeting room",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "office-glass-cabins",
+  "cat": "office",
+  "title": "Glass cabins",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "office-pantry",
+  "cat": "office",
+  "title": "Office pantry",
+  "w": 960,
+  "h": 1280
+ },
+ {
+  "slug": "office-storage",
+  "cat": "office",
+  "title": "Full-height storage",
+  "w": 960,
+  "h": 1280
+ }
+]
